@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bohmen - Mode, Déco, Maison & Arts de la Table</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Jost', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        bohmen: {
+                            light: '#FAF8F5',
+                            accent: '#C4A484', // Earthy tone
+                            dark: '#2C2C2C',
+                            gray: '#8A8A8A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling and basic resets */
+        html { scroll-behavior: smooth; }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 1px;
+            bottom: -4px; left: 0; background-color: #2C2C2C;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .tab-active { border-bottom: 2px solid #2C2C2C; font-weight: 500; color: #2C2C2C; }
+        .tab-inactive { color: #8A8A8A; }
+        .tab-inactive:hover { color: #2C2C2C; }
+    </style>
+</head>
+<body class="bg-bohmen-light text-bohmen-dark font-sans antialiased">
+
+    <!-- Top Promo Banner -->
+    <div class="bg-bohmen-accent text-white text-center py-2 px-4 text-sm font-medium tracking-wide">
+        Offre de bienvenue : 10% de remise sur votre première commande avec le code <span class="font-bold">8BFQNZF1</span>.
+    </div>
+
+    <!-- Header Section -->
+    <header class="py-6 px-4 md:px-8 max-w-screen-2xl mx-auto">
+        <div class="flex justify-between items-center">
+            <!-- Mobile Menu Icon (hidden on desktop) -->
+            <button class="md:hidden text-2xl" aria-label="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Search (Desktop) -->
+            <div class="hidden md:flex flex-1 items-center gap-2 text-bohmen-gray hover:text-bohmen-dark cursor-pointer transition">
+                <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                <span class="text-sm uppercase tracking-widest">Rechercher</span>
+            </div>
+
+            <!-- Logo -->
+            <div class="text-center">
+                <a href="#" class="text-4xl md:text-5xl font-serif tracking-widest">BOHMEN</a>
+            </div>
+
+            <!-- User & Cart -->
+            <div class="flex flex-1 justify-end items-center gap-6">
+                <a href="#" class="hidden md:block text-bohmen-dark hover:text-bohmen-accent transition">
+                    <i class="fa-regular fa-user text-xl"></i>
+                </a>
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <div class="relative">
+                        <i class="fa-solid fa-bag-shopping text-xl group-hover:text-bohmen-accent transition"></i>
+                        <span class="absolute -top-1 -right-2 bg-bohmen-dark text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                    </div>
+                    <span class="hidden sm:block font-medium">0,00 €</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation (Desktop) -->
+    <nav class="hidden md:block border-y border-gray-200 py-4 mb-8">
+        <ul class="flex justify-center gap-10 text-sm uppercase tracking-widest font-medium">
+            <li><a href="#" class="nav-link">Nouveautés</a></li>
+            <li><a href="#" class="nav-link">Mode</a></li>
+            <li><a href="#" class="nav-link">Déco / Maison</a></li>
+            <li><a href="#" class="nav-link">Arts De La Table</a></li>
+            <li><a href="#" class="nav-link">Enfants</a></li>
+            <li><a href="#" class="nav-link text-bohmen-accent font-semibold">Bohmen L'Atelier</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Image (Illustrative) -->
+    <section class="max-w-screen-2xl mx-auto px-4 md:px-8 mb-16">
+        <div class="relative h-[60vh] bg-gray-300 w-full overflow-hidden group flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1920" alt="Décoration Bohmen" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition duration-1000">
+            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+            <div class="relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-serif mb-4">L'Art de Vivre</h1>
+                <a href="#" class="inline-block mt-4 px-8 py-3 bg-white text-bohmen-dark uppercase text-sm tracking-widest hover:bg-bohmen-dark hover:text-white transition duration-300">Découvrir la collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Sub-Navigation Tabs -->
+    <section class="max-w-screen-xl mx-auto px-4 mb-10">
+        <div class="flex justify-center gap-8 md:gap-16 text-sm uppercase tracking-widest mb-10 border-b border-gray-200">
+            <button class="pb-3 tab-active">Nouveautés</button>
+            <button class="pb-3 tab-inactive transition">Meilleures ventes</button>
+            <button class="pb-3 tab-inactive text-red-800 transition">Promotions</button>
+        </div>
+
+        <!-- Product Grid (Mockup filling the space) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <!-- Product 1 -->
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden aspect-[3/4] mb-4 bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&q=80&w=600" alt="Vase en céramique" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-2 left-2 bg-white px-2 py-1 text-xs font-medium uppercase tracking-wider">Nouveau</span>
+                </div>
+                <h3 class="font-serif text-lg mb-1 group-hover:text-bohmen-accent transition">Vase en grès brut</h3>
+                <p class="text-sm text-bohmen-gray">Déco / Maison</p>
+                <p class="mt-2 font-medium">45,00 €</p>
+            </div>
+            <!-- Product 2 -->
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden aspect-[3/4] mb-4 bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1584286595398-a59f21d313f5?auto=format&fit=crop&q=80&w=600" alt="Coussins Lin" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <h3 class="font-serif text-lg mb-1 group-hover:text-bohmen-accent transition">Housse de coussin en lin</h3>
+                <p class="text-sm text-bohmen-gray">Mode / Maison</p>
+                <p class="mt-2 font-medium">29,00 €</p>
+            </div>
+            <!-- Product 3 -->
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden aspect-[3/4] mb-4 bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1603723376269-87c2fb2577eb?auto=format&fit=crop&q=80&w=600" alt="Assiettes artisanales" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <h3 class="font-serif text-lg mb-1 group-hover:text-bohmen-accent transition">Service d'assiettes céramique</h3>
+                <p class="text-sm text-bohmen-gray">Arts de la Table</p>
+                <p class="mt-2 font-medium">85,00 €</p>
+            </div>
+            <!-- Product 4 -->
+            <div class="group cursor-pointer">
+                <div class="relative overflow-hidden aspect-[3/4] mb-4 bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&q=80&w=600" alt="Jouets enfants" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <h3 class="font-serif text-lg mb-1 group-hover:text-bohmen-accent transition">Jouets en bois naturel</h3>
+                <p class="text-sm text-bohmen-gray">Enfants</p>
+                <p class="mt-2 font-medium">32,00 €</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#" class="inline-block border border-bohmen-dark px-8 py-3 text-sm uppercase tracking-widest hover:bg-bohmen-dark hover:text-white transition duration-300">Voir toutes les nouveautés</a>
+        </div>
+    </section>
+
+    <!-- Reassurance Banner -->
+    <section class="bg-[#F2EFE9] py-16 mt-20">
+        <div class="max-w-screen-xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            <!-- Feature 1 -->
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full border border-bohmen-dark flex items-center justify-center mb-4 text-2xl">
+                    <i class="fa-solid fa-truck"></i>
+                </div>
+                <h4 class="font-serif text-xl mb-2">Frais de port offerts</h4>
+                <p class="text-sm text-bohmen-gray max-w-xs">Vos frais de port sont offerts<br>à partir de 50 Euros d'achat.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full border border-bohmen-dark flex items-center justify-center mb-4 text-2xl">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+                <h4 class="font-serif text-xl mb-2">Expédition sous 24h</h4>
+                <p class="text-sm text-bohmen-gray max-w-xs">Le colis est expédié en 24h du mardi au vendredi sur les produits en stock.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full border border-bohmen-dark flex items-center justify-center mb-4 text-2xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h4 class="font-serif text-xl mb-2">Paiement sécurisé</h4>
+                <p class="text-sm text-bohmen-gray max-w-xs">Vous payez en toute sécurité,<br>vos données sont chiffrées.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-bohmen-dark text-white pt-16 pb-8">
+        <div class="max-w-screen-xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            <!-- A Propos -->
+            <div>
+                <h4 class="font-serif text-lg mb-6 uppercase tracking-wider">A Propos</h4>
+                <div class="text-sm text-gray-300 space-y-2 leading-relaxed">
+                    <p class="font-bold text-white tracking-widest text-lg mb-3">BOHMEN</p>
+                    <p>9 rue du mail</p>
+                    <p>69004 LYON</p>
+                    <p class="pt-2">Tél : <a href="tel:0982454809" class="hover:text-bohmen-accent transition">09 82 45 48 09</a></p>
+                </div>
+            </div>
+
+            <!-- Horaires -->
+            <div>
+                <h4 class="font-serif text-lg mb-6 uppercase tracking-wider">Horaires</h4>
+                <div class="text-sm text-gray-300 space-y-2 leading-relaxed">
+                    <p>Mardi au Vendredi</p>
+                    <p>10h à 13h - 14h à 19h</p>
+                    <p class="pt-4">Samedi</p>
+                    <p>10h à 19h</p>
+                </div>
+            </div>
+
+            <!-- Liens Utiles -->
+            <div>
+                <h4 class="font-serif text-lg mb-6 uppercase tracking-wider">Liens Utiles</h4>
+                <ul class="text-sm text-gray-300 space-y-3">
+                    <li><a href="#" class="hover:text-bohmen-accent transition">Contactez-nous</a></li>
+                    <li><a href="#" class="hover:text-bohmen-accent transition">Qui sommes nous</a></li>
+                    <li><a href="#" class="hover:text-bohmen-accent transition">Conditions générales de vente</a></li>
+                    <li><a href="#" class="hover:text-bohmen-accent transition">Informations magasin</a></li>
+                </ul>
+            </div>
+
+            <!-- Instagram / Reseaux -->
+            <div>
+                <h4 class="font-serif text-lg mb-6 uppercase tracking-wider">Suivez nous sur</h4>
+                <div class="flex gap-4 mb-6">
+                    <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center hover:bg-white hover:text-bohmen-dark transition duration-300">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center hover:bg-white hover:text-bohmen-dark transition duration-300">
+                        <i class="fa-brands fa-facebook-f text-lg"></i>
+                    </a>
+                </div>
+                <a href="#" class="inline-block text-sm uppercase tracking-widest border-b border-gray-500 pb-1 hover:text-bohmen-accent hover:border-bohmen-accent transition">
+                    Découvrir notre Instagram
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Copyright & Credits -->
+        <div class="border-t border-gray-700 pt-8 text-center text-xs text-gray-500 uppercase tracking-widest">
+            <p>&copy; 2026 Bohmen. Tous droits réservés.</p>
+            <p class="mt-2">Réalisé par <a href="http://cedricmure.fr" target="_blank" class="text-gray-300 hover:text-white transition">cedricmure.fr</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
